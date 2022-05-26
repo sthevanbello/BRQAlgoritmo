@@ -17,9 +17,6 @@ namespace CursoAlgoritmos
             //For();
             #endregion
 
-            #region Tabela Verdade
-
-            #endregion
 
             int soma = Somar(5, 6);
             Console.WriteLine(soma);
