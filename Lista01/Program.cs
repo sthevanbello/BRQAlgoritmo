@@ -79,9 +79,11 @@ namespace Lista01
         private static void ExercicioE()
         {
             Console.WriteLine("Lista 01 - Exercício E\n");
+
             int x = 12;
             int y = x;
             int z = x + y;
+
             x = 20;
             y = 10;
             Console.WriteLine($"x:{x} y:{y} z:{z}");
@@ -91,8 +93,10 @@ namespace Lista01
             Console.WriteLine("Lista 01 - Exercício F\n");
             int a = 2;
             int b = 3;
-            a = a + b;
+            // a += b;
+            a = a + b; 
             int c = a - b;
+
             Console.WriteLine($"c:{c}");
             b = 5;
             Console.WriteLine($"a:{a} b:{b} c:{c}");

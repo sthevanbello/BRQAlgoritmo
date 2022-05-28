@@ -16,13 +16,22 @@ namespace Lista02
 
             //Exercicio05();
 
-            Exercicio06();
+            //Exercicio06();
+
+            //Exercicio07();
+
+            //Exercicio08();
+
+            //Exercicio09();
+
+            Exercicio10();
 
             Console.ReadKey();
         }
         private static void Exercicio01()
         {
-            Console.WriteLine("Lista 02 - Exercício 01\n");
+            Console.WriteLine("Lista 06 - Exercício 01\n");
+
             double[] vetor = new double[8];
 
             for (int i = 0; i < vetor.Length; i++)
@@ -45,7 +54,7 @@ namespace Lista02
         }
         private static void Exercicio02()
         {
-            Console.WriteLine("Lista 02 - Exercício 02\n");
+            Console.WriteLine("Lista 06 - Exercício 02\n");
             int[] vetor = { 5, 1, 4, 2, 7, 8, 3, 6 };
             int[] vetor2 = new int[vetor.Length];
 
@@ -69,7 +78,7 @@ namespace Lista02
         }
         private static void Exercicio03()
         {
-            Console.WriteLine("Lista 02 - Exercício 03\n");
+            Console.WriteLine("Lista 06 - Exercício 03\n");
             double[] vetorA = new double[10];
             double[] vetorM = new double[10];
             double multiplicadorX = 0;
@@ -111,7 +120,7 @@ namespace Lista02
         }
         private static void Exercicio04()
         {
-            Console.WriteLine("Lista 02 - Exercício 04\n");
+            Console.WriteLine("Lista 06 - Exercício 04\n");
             string[] nomes = new string[5];
             bool achou = false;
             for (int i = 0; i < nomes.Length; i++)
@@ -144,7 +153,7 @@ namespace Lista02
         }
         private static void Exercicio05()
         {
-            Console.WriteLine("Lista 02 - Exercício 05\n");
+            Console.WriteLine("Lista 06 - Exercício 05\n");
             int[] vetorQ = new int[10];
             int contador = 0;
             int posicao = 0;
@@ -178,14 +187,14 @@ namespace Lista02
         }
         private static void Exercicio06()
         {
-            Console.WriteLine("Lista 02 - Exercício 06\n");
+            Console.WriteLine("Lista 06 - Exercício 06\n");
             double[] temperaturas = new double[7];
             double soma = 0, media = 0, menorTemperatura = 100, maiorTemperatura = 0;
             int diasAbaixoDaMedia = 0;
 
             for (int i = 0; i < temperaturas.Length; i++)
             {
-                Console.Write($"Temperatura no dia {i+1}: ");
+                Console.Write($"Temperatura no dia {i + 1}: ");
                 temperaturas[i] = double.Parse(Console.ReadLine());
             }
             for (int i = 0; i < temperaturas.Length; i++)
@@ -199,7 +208,7 @@ namespace Lista02
             media = soma / temperaturas.Length;
             foreach (var temperaturaDia in temperaturas)
             {
-                if(temperaturaDia < media)
+                if (temperaturaDia < media)
                     diasAbaixoDaMedia++;
             }
             Console.WriteLine($"Menor temperatura da semana: {menorTemperatura}");
@@ -209,6 +218,121 @@ namespace Lista02
 
             Espacos();
         }
+        private static void Exercicio07()
+        {
+            Console.WriteLine("Lista 06 - Exercício 07\n");
+
+            double[] vetor = new double[10];
+
+            for (int i = 0; i < vetor.Length; i++)
+            {
+                vetor[i] = double.Parse(Console.ReadLine());
+            }
+
+            //Array.Sort(vetor);
+            Ordenar(vetor, vetor.Length);
+
+
+
+            void Ordenar(double[] vetor, int tamanho)
+            {
+                for (int i = tamanho; i > 1; i--)
+                {
+                    movimentaValor(vetor, i);
+                }
+            }
+
+            void movimentaValor(double[] vetor, int tamanho)
+            {
+                for (int i = 0; i < tamanho - 1; i++)
+                {
+                    if (vetor[i] > vetor[i + 1])
+                    {
+                        TrocadePosicao(vetor, i);
+                    }
+                }
+            }
+
+            void TrocadePosicao(double[] vetor, int i)
+            {
+                double auxiliar = vetor[i];
+                vetor[i] = vetor[i + 1];
+                vetor[i + 1] = auxiliar;
+            }
+
+            foreach (var numero in vetor)
+            {
+                Console.WriteLine(numero);
+            }
+
+            Espacos();
+        }
+        private static void Exercicio08()
+        {
+            Console.WriteLine("Lista 06 - Exercício 08\n");
+            double num1 = 0, num2 = 0, num3 = 0;
+
+            Console.WriteLine("Digite três valores");
+
+            Console.Write("Digite o valor 1: ");
+            num1 = double.Parse(Console.ReadLine());
+            Console.Write("Digite o valor 2: ");
+            num2 = double.Parse(Console.ReadLine());
+            Console.Write("Digite o valor 3: ");
+            num3 = double.Parse(Console.ReadLine());
+
+            double soma = Soma(num1, num2, num3);
+
+            double media = Media(num1, num2, num3);
+
+            double Soma(double num1, double num2, double num3)
+            {
+                return num1 + num2 + num3;
+            }
+
+            double Media(double num1, double num2, double num3)
+            {
+                double soma = Soma(num1, num2, num3);
+
+                return soma / 3;
+            }
+
+            Console.WriteLine($"Soma: {soma}\nMédia: {media}");
+
+            Espacos();
+        }
+        private static void Exercicio09()
+        {
+            Console.WriteLine("Lista 06 - Exercício 09\n");
+
+            double numero = double.Parse(Console.ReadLine());
+
+            string resultado = VerificaNumero(numero);
+
+            Console.WriteLine(resultado);
+
+            string VerificaNumero(double numero)
+            {
+                if (numero > 0)
+                {
+                    return "P";
+                }
+                return "N";
+            }
+
+            Espacos();
+        }
+        private static void Exercicio10()
+        {
+            Console.WriteLine("Lista 06 - Exercício 09\n");
+
+            string valorDigitado = Console.ReadLine();
+
+            Console.WriteLine($"O número {valorDigitado} possui {valorDigitado.Length} dígitos");
+
+            Espacos();
+        }
+
         public static void Espacos()
         {
             for (int i = 0; i < 50; i++)
