@@ -8,16 +8,15 @@ namespace Lista01
         {
             ExercicioA();
             Espacos();
-            ExercicioB();
-            Espacos();
-            ExercicioC();
-            Espacos();
-            ExercicioD();
-            Espacos();
-            ExercicioE();
-            Espacos();
-            ExercicioF();
-
+            // ExercicioB();
+            // Espacos();
+            // ExercicioC();
+            // Espacos();
+            // ExercicioD();
+            // Espacos();
+            // ExercicioE();
+            // Espacos();
+            // ExercicioF();
             Console.ReadKey();
         }
 

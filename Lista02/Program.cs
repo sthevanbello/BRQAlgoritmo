@@ -191,16 +191,16 @@ namespace Lista02
             Console.WriteLine($"Maior número inserido: {maior} --- Posição no vetor: {posicao}");
 
             #region Usando List
-            //var maior2 = lista.Max();
-            //var maiores = lista.Where(x => x == maior2).ToList();
-            //var indices = lista.Select((x, i) => new { x, i })
-            //      .Where(x => x.x == maior2)
-            //      .Select(x => x.i).ToList();
+            var maior2 = lista.Max();
+            var maiores = lista.Where(x => x == maior2).ToList();
+            var indices = lista.Select((num, indice) => new { num, indice })
+                  .Where(x => x.num == maior2)
+                  .Select(x => x.indice).ToList();
 
-            //for (int i = 0; i < maiores.Count; i++)
-            //{
-            //    Console.WriteLine($"Maior número inserido: {maiores[i]} --- Posição no vetor: {indices[i]}");
-            //}
+            for (int i = 0; i < maiores.Count; i++)
+            {
+                Console.WriteLine($"Maior número inserido: {maiores[i]} --- Posição no vetor: {indices[i]}");
+            }
             #endregion
 
             Espacos();

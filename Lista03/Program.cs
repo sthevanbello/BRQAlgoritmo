@@ -11,7 +11,7 @@ namespace Lista03
             //Exercicio02();
             //Exercicio03();
             //Exercicio04();
-            //Exercicio05();
+            Exercicio05();
             //Exercicio06();
             //Exercicio07();
             //Exercicio08();
@@ -54,11 +54,13 @@ namespace Lista03
             Console.WriteLine("Lista 03 - Exercício 02\n");
             double[] valores = new double[3];
             double maior = 0;
+
             for (int i = 0; i < valores.Length; i++)
             {
-                Console.Write($"Digite o valor {i+1}: ");
+                Console.Write($"Digite o valor {i + 1}: ");
                 valores[i] = double.Parse(Console.ReadLine());
             }
+            #region usando for
             for (int i = 0; i < valores.Length; i++)
             {
                 if (valores[i] > maior)
@@ -66,9 +68,32 @@ namespace Lista03
                     maior = valores[i];
                 }
             }
-            Console.WriteLine($"O número {maior.ToString("G")} é o maior");
+            #endregion
 
-            Console.WriteLine(maior.ToString("G", CultureInfo.InvariantCulture));
+            #region Usando if
+            //double a = valores[0];
+            //double b = valores[1];
+            //double c = valores[2];
+
+
+            //if (a > maior)
+            //{
+            //    maior = a;
+            //}
+            //if (b > maior)
+            //{
+            //    maior = b;
+            //}
+            //if (c > maior)
+            //{
+            //    maior = c;
+            //}
+            #endregion
+
+
+            Console.WriteLine($"\nO número {maior.ToString("G")} é o maior");
+
+            //Console.WriteLine(maior.ToString("G", CultureInfo.InvariantCulture));
 
             Espacos();
         }
@@ -84,7 +109,7 @@ namespace Lista03
             Console.Write("Digite o número 2: ");
             numero2 = int.Parse(Console.ReadLine());
 
-            if (numero1 % numero2 == 0)
+            if (numero1 % numero2 == 0 || numero2 % numero1 == 0)
             {
                 resultado = "São múltiplos";
             }
@@ -100,30 +125,29 @@ namespace Lista03
         {
             Console.WriteLine("Lista 03 - Exercício 04\n");
 
-            string sexo = "";
-            double altura = 0;
             double peso = 0;
 
             Console.Write("Insira a sua altura: ");
-            altura = double.Parse(Console.ReadLine());
+            double altura = double.Parse(Console.ReadLine());
 
             Console.Write("Insira o seu sexo homem/mulher: ");
-            sexo = Console.ReadLine();
+            string sexo = Console.ReadLine();
 
             if (sexo == "homem")
             {
                 peso = (72.7 * altura) - 58;
             }
-            else if(sexo == "mulher"){
+            else if (sexo == "mulher")
+            {
                 peso = (62.1 * altura) - 44.7;
             }
             else
             {
-                Console.WriteLine("Não encontrado, digite apenas homem ou mulher");
+                Console.WriteLine ("Não encontrado, digite apenas homem ou mulher");
             }
 
-            Console.WriteLine($"O seu Peso ideal para a sua altura é: {peso:0.00}");
-            
+            Console.WriteLine ($"O seu Peso ideal para a sua altura é: {peso:0.00}");
+
             Espacos();
         }
         private static void Exercicio05()
@@ -135,7 +159,9 @@ namespace Lista03
             Console.Write("Digite o primeiro número: ");
             double segundo = double.Parse(Console.ReadLine());
 
-            if (primeiro > segundo)
+            if (primeiro == segundo)
+                resultado = "Números iguais";
+            else if (primeiro > segundo)
                 resultado = "Primeiro é maior";
             else
                 resultado = "Segundo é maior";
@@ -176,7 +202,7 @@ namespace Lista03
             int numero = int.Parse(Console.ReadLine());
             for (int i = 1; i <= numero; i++)
             {
-                if (i % 2  == 0)
+                if (i % 2 == 0)
                 {
                     Console.WriteLine($"{i} é par");
                 }
