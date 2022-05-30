@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Lista02
 {
@@ -14,7 +16,7 @@ namespace Lista02
 
             //Exercicio04();
 
-            //Exercicio05();
+            Exercicio05();
 
             //Exercicio06();
 
@@ -24,7 +26,7 @@ namespace Lista02
 
             //Exercicio09();
 
-            Exercicio10();
+            //Exercicio10();
 
             Console.ReadKey();
         }
@@ -155,12 +157,14 @@ namespace Lista02
         {
             Console.WriteLine("Lista 06 - Exercício 05\n");
             int[] vetorQ = new int[10];
+            List<int> lista = new List<int>();
             int contador = 0;
             int posicao = 0;
-            int maior = 0;
+            int maior = -9999999;
             while (true)
             {
-                if (contador > 9) break;
+                if (contador > 9)
+                    break;
 
                 Console.Write($"Posição {contador} no vetor - Insira um número par: ");
                 int numeroLido = int.Parse(Console.ReadLine());
@@ -169,11 +173,12 @@ namespace Lista02
                 {
                     vetorQ[contador] = numeroLido;
                     contador++;
+                    lista.Add(numeroLido);
                 }
                 else
                     Console.WriteLine("Insira números pares, apenas");
-
             }
+
             for (int i = 0; i < vetorQ.Length; i++)
             {
                 if (vetorQ[i] > maior)
@@ -182,7 +187,22 @@ namespace Lista02
                     posicao = i;
                 }
             }
+
             Console.WriteLine($"Maior número inserido: {maior} --- Posição no vetor: {posicao}");
+
+            #region Usando List
+            //var maior2 = lista.Max();
+            //var maiores = lista.Where(x => x == maior2).ToList();
+            //var indices = lista.Select((x, i) => new { x, i })
+            //      .Where(x => x.x == maior2)
+            //      .Select(x => x.i).ToList();
+
+            //for (int i = 0; i < maiores.Count; i++)
+            //{
+            //    Console.WriteLine($"Maior número inserido: {maiores[i]} --- Posição no vetor: {indices[i]}");
+            //}
+            #endregion
+
             Espacos();
         }
         private static void Exercicio06()
