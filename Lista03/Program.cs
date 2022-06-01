@@ -11,12 +11,12 @@ namespace Lista03
             //Exercicio02();
             //Exercicio03();
             //Exercicio04();
-            Exercicio05();
+            //Exercicio05();
             //Exercicio06();
             //Exercicio07();
             //Exercicio08();
             //Exercicio09();
-            //Exercicio10();
+            Exercicio10();
         }
 
         private static void Exercicio01()
@@ -167,6 +167,8 @@ namespace Lista03
                 resultado = "Segundo é maior";
 
             Console.WriteLine(resultado);
+
+
             Espacos();
         }
         private static void Exercicio06()
@@ -226,8 +228,7 @@ namespace Lista03
             Console.WriteLine("Lista 03 - Exercício 10\n");
             int anterior = 0, proximo = 0, auxiliar = 0; ;
 
-            Console.Write($"{proximo} ");
-
+            //Console.Write($"{proximo} ");
             proximo = 1;
 
             for (int i = 0; i < 15; i++)

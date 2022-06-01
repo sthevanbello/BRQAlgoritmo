@@ -8,7 +8,7 @@ namespace Lista04
         {
             //Exercicio01();
             //Exercicio02();
-            //Exercicio03();
+            Exercicio03();
             //Exercicio04();
             //Exercicio05();
             //Exercicio06();
@@ -72,7 +72,11 @@ namespace Lista04
                 segundos = tempoEmSegundos % 3600 % 60;
             }
 
-            Console.WriteLine($"{horas}:{minutos}:{segundos}");
+            Console.WriteLine($"{horas}:{minutos}:{segundos}\n");
+
+            Console.WriteLine($"{horas} h");
+            Console.WriteLine($"{minutos} min");
+            Console.WriteLine($"{segundos} seg");
 
             Espacos();
         }

@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lista06", "Lista02\Lista06.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lista01", "Lista01\Lista01.csproj", "{9DC17E3F-F743-4911-9DBE-502140731FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lista03", "Lista03\Lista03.csproj", "{7FF486BF-2FC2-428A-BD95-0D9C28183D88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lista03", "Lista03\Lista03.csproj", "{7FF486BF-2FC2-428A-BD95-0D9C28183D88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lista04", "Lista04\Lista04.csproj", "{71D42F91-2FBE-4CE2-ABBD-38B26B58A9CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lista04", "Lista04\Lista04.csproj", "{71D42F91-2FBE-4CE2-ABBD-38B26B58A9CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lista05", "Lista05\Lista05.csproj", "{653E7794-A96E-43D3-8947-77FEB7B69E24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{71D42F91-2FBE-4CE2-ABBD-38B26B58A9CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71D42F91-2FBE-4CE2-ABBD-38B26B58A9CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71D42F91-2FBE-4CE2-ABBD-38B26B58A9CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{653E7794-A96E-43D3-8947-77FEB7B69E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653E7794-A96E-43D3-8947-77FEB7B69E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653E7794-A96E-43D3-8947-77FEB7B69E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653E7794-A96E-43D3-8947-77FEB7B69E24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

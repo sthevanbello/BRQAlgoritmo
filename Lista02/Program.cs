@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Lista02
+namespace Lista06
 {
     internal class Program
     {
@@ -16,7 +16,7 @@ namespace Lista02
 
             //Exercicio04();
 
-            Exercicio05();
+            //Exercicio05();
 
             //Exercicio06();
 
@@ -26,7 +26,7 @@ namespace Lista02
 
             //Exercicio09();
 
-            //Exercicio10();
+            Exercicio10();
 
             Console.ReadKey();
         }
@@ -225,7 +225,9 @@ namespace Lista02
                     menorTemperatura = temperaturas[i];
                 soma += temperaturas[i];
             }
+
             media = soma / temperaturas.Length;
+
             foreach (var temperaturaDia in temperaturas)
             {
                 if (temperaturaDia < media)
@@ -246,39 +248,61 @@ namespace Lista02
 
             for (int i = 0; i < vetor.Length; i++)
             {
+                Console.Write($"Insira o valor {i + 1}: ");
                 vetor[i] = double.Parse(Console.ReadLine());
             }
 
             //Array.Sort(vetor);
-            Ordenar(vetor, vetor.Length);
 
+            //Ordenar(vetor, vetor.Length);
 
+            #region Bubble Sort
 
-            void Ordenar(double[] vetor, int tamanho)
+            for (int i = vetor.Length; i > 1; i--)
             {
-                for (int i = tamanho; i > 1; i--)
+                for (int j = 0; j < i - 1; j++)
                 {
-                    movimentaValor(vetor, i);
-                }
-            }
-
-            void movimentaValor(double[] vetor, int tamanho)
-            {
-                for (int i = 0; i < tamanho - 1; i++)
-                {
-                    if (vetor[i] > vetor[i + 1])
+                    if (vetor[j] > vetor[j + 1])
                     {
-                        TrocadePosicao(vetor, i);
+                        double auxiliar = vetor[j];
+                        vetor[j] = vetor[j + 1];
+                        vetor[j + 1] = auxiliar;
                     }
                 }
             }
 
-            void TrocadePosicao(double[] vetor, int i)
-            {
-                double auxiliar = vetor[i];
-                vetor[i] = vetor[i + 1];
-                vetor[i + 1] = auxiliar;
-            }
+            #endregion
+
+            #region Bublle Sort com funções
+
+            //Ordenar(vetor, vetor.Length);
+
+            //void Ordenar(double[] vetor, int tamanho)
+            //{
+            //    for (int i = tamanho; i > 1; i--)
+            //    {
+            //        movimentaValor(vetor, i);
+            //    }
+            //}
+
+            //void movimentaValor(double[] vetor, int tamanho)
+            //{
+            //    for (int i = 0; i < tamanho - 1; i++)
+            //    {
+            //        if (vetor[i] > vetor[i + 1])
+            //        {
+            //            TrocadePosicao(vetor, i);
+            //        }
+            //    }
+            //}
+
+            //void TrocadePosicao(double[] vetor, int i)
+            //{
+            //    double auxiliar = vetor[i];
+            //    vetor[i] = vetor[i + 1];
+            //    vetor[i + 1] = auxiliar;
+            //}
+            #endregion
 
             foreach (var numero in vetor)
             {
@@ -296,8 +320,10 @@ namespace Lista02
 
             Console.Write("Digite o valor 1: ");
             num1 = double.Parse(Console.ReadLine());
+
             Console.Write("Digite o valor 2: ");
             num2 = double.Parse(Console.ReadLine());
+
             Console.Write("Digite o valor 3: ");
             num3 = double.Parse(Console.ReadLine());
 
@@ -331,6 +357,8 @@ namespace Lista02
 
             Console.WriteLine(resultado);
 
+
+
             string VerificaNumero(double numero)
             {
                 if (numero > 0)
@@ -344,20 +372,23 @@ namespace Lista02
         }
         private static void Exercicio10()
         {
-            Console.WriteLine("Lista 06 - Exercício 09\n");
+            Console.WriteLine("Lista 06 - Exercício 10\n");
 
-            string valorDigitado = Console.ReadLine();
+            var numero = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"O número {valorDigitado} possui {valorDigitado.Length} dígitos");
+            string numeroTexto = numero.ToString();
+
+            Console.WriteLine($"\nO número {numeroTexto} possui {numeroTexto.Length} dígitos");
 
             Espacos();
         }
 
         public static void Espacos()
         {
+            Console.WriteLine();
             for (int i = 0; i < 50; i++)
             {
-                Console.Write("=");
+                Console.Write("=+");
             }
             Console.WriteLine();
         }
