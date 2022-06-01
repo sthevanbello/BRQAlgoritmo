@@ -22,11 +22,11 @@ namespace Lista06
 
             //Exercicio07();
 
-            //Exercicio08();
+            Exercicio08();
 
             //Exercicio09();
 
-            Exercicio10();
+            //Exercicio10();
 
             Console.ReadKey();
         }
@@ -328,22 +328,29 @@ namespace Lista06
             num3 = double.Parse(Console.ReadLine());
 
             double soma = Soma(num1, num2, num3);
+            
+            double media = Media(soma);
 
-            double media = Media(num1, num2, num3);
+            double media2 = Media2(num1, num2, num3);
 
             double Soma(double num1, double num2, double num3)
             {
                 return num1 + num2 + num3;
             }
 
-            double Media(double num1, double num2, double num3)
+            double Media(double soma)
+            {
+                return soma / 3;
+            }
+
+            double Media2(double num1, double num2, double num3)
             {
                 double soma = Soma(num1, num2, num3);
 
                 return soma / 3;
             }
 
-            Console.WriteLine($"Soma: {soma}\nMédia: {media}");
+            Console.WriteLine($"Soma: {soma:0.00}\nMédia: {media2:0.00}");
 
             Espacos();
         }
@@ -385,11 +392,14 @@ namespace Lista06
 
         public static void Espacos()
         {
+            var color = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine();
             for (int i = 0; i < 50; i++)
             {
                 Console.Write("=+");
             }
+            Console.ForegroundColor = color;
             Console.WriteLine();
         }
     }

@@ -154,8 +154,10 @@ namespace Lista03
         {
             Console.WriteLine("Lista 03 - Exercício 05\n");
             string resultado = "";
+
             Console.Write("Digite o primeiro número: ");
             double primeiro = double.Parse(Console.ReadLine());
+
             Console.Write("Digite o primeiro número: ");
             double segundo = double.Parse(Console.ReadLine());
 

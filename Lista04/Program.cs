@@ -8,12 +8,12 @@ namespace Lista04
         {
             //Exercicio01();
             //Exercicio02();
-            Exercicio03();
+            //Exercicio03();
             //Exercicio04();
             //Exercicio05();
             //Exercicio06();
             //Exercicio07();
-            //Exercicio08();
+            Exercicio08();
         }
         private static void Exercicio01()
         {
@@ -74,9 +74,9 @@ namespace Lista04
 
             Console.WriteLine($"{horas}:{minutos}:{segundos}\n");
 
-            Console.WriteLine($"{horas} h");
-            Console.WriteLine($"{minutos} min");
-            Console.WriteLine($"{segundos} seg");
+            Console.WriteLine($"{horas:00} h");
+            Console.WriteLine($"{minutos:00} min");
+            Console.WriteLine($"{segundos:00} seg");
 
             Espacos();
         }
@@ -141,12 +141,12 @@ namespace Lista04
             Console.Write($"Insira o total de votos válidos: ");
             double validos = double.Parse(Console.ReadLine());
 
-            double percentualBrancos = brancos / eleitores * 100;
+            double percentualBrancos = Math.Round(brancos / eleitores * 100, 2);
             double percentualNulos = nulos / eleitores * 100;
             double percentualValidos = validos / eleitores * 100;
 
             Console.WriteLine($"Eleitores: {eleitores}");
-            Console.WriteLine($"Votos em Branco: {brancos} - Percentual em relação aos eleitores: {percentualBrancos:0.00}%");
+            Console.WriteLine($"Votos em Branco: {brancos} - Percentual em relação aos eleitores: {percentualBrancos}%");
             Console.WriteLine($"Votos em Branco: {nulos} - Percentual em relação aos eleitores: {percentualNulos:0.00}%");
             Console.WriteLine($"Votos em Branco: {validos} - Percentual em relação aos eleitores: {percentualValidos:0.00}%");
 
@@ -160,6 +160,7 @@ namespace Lista04
 
             Console.Write("Insira o custo de fábrica do veículo: ");
             double custoFabrica = double.Parse(Console.ReadLine());
+
             double valorDistribuidor = percentagemDistribuidor * custoFabrica;
             double custoImposto = percentagemImpostos * custoFabrica;
 
