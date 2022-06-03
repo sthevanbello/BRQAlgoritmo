@@ -249,7 +249,7 @@ namespace Lista03
 
             static int fibonacci(int numero)
             {
-                if (numero < 2)
+                if (numero <= 1)
                 {
                     return numero;
                 }
