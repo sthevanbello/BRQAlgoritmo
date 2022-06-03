@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Lista04
 {
@@ -8,12 +9,12 @@ namespace Lista04
         {
             //Exercicio01();
             //Exercicio02();
-            //Exercicio03();
+            Exercicio03();
             //Exercicio04();
             //Exercicio05();
             //Exercicio06();
             //Exercicio07();
-            Exercicio08();
+            //Exercicio08();
         }
         private static void Exercicio01()
         {
@@ -36,7 +37,14 @@ namespace Lista04
             Console.WriteLine("Lista 04 - Exercício 02\n");
 
             double[] notas = new double[3];
-            int peso1 = 2, peso2 = 3, peso3 = 5;
+            //int peso1 = 2, peso2 = 3, peso3 = 5;
+            Console.Write("Insira o peso 1: ");
+            int peso1 = int.Parse(Console.ReadLine());
+            Console.Write("Insira o peso 2: ");
+            int peso2 = int.Parse(Console.ReadLine());
+            Console.Write("Insira o peso 3: ");
+            int peso3 = int.Parse(Console.ReadLine());
+
 
             Console.WriteLine("Digite as três notas do aluno");
             for (int i = 0; i < 3; i++)
@@ -47,7 +55,7 @@ namespace Lista04
 
             var resultado = (notas[0] * peso1 + notas[1] * peso2 + notas[2] * peso3) / (peso1 + peso2 + peso3);
 
-            Console.WriteLine($"A média ponderada do aluno é: {resultado}");
+            Console.WriteLine($"A média ponderada do aluno é: {resultado:0.00}");
 
             Espacos();
         }
@@ -58,25 +66,35 @@ namespace Lista04
 
             Console.WriteLine("Insira o tempo de duração do evento em segundos");
             int tempoEmSegundos = int.Parse(Console.ReadLine());
+            #region Com if
 
             if (tempoEmSegundos >= 3600)
-            {
                 horas = tempoEmSegundos / 3600;
-            }
             if (tempoEmSegundos % 3600 >= 60)
-            {
                 minutos = (tempoEmSegundos % 3600) / 60;
-            }
             if (tempoEmSegundos % 3600 % 60 > 0)
-            {
                 segundos = tempoEmSegundos % 3600 % 60;
-            }
+            #endregion
 
             Console.WriteLine($"{horas}:{minutos}:{segundos}\n");
 
-            Console.WriteLine($"{horas:00} h");
-            Console.WriteLine($"{minutos:00} min");
-            Console.WriteLine($"{segundos:00} seg");
+            #region Sem if
+            int horas2 = (tempoEmSegundos / (60 * 60));
+            int minutos2 = ((tempoEmSegundos - (horas2 * 3600)) / 60);
+            int segundos2 = (tempoEmSegundos - (horas2 * 3600) - (minutos2 * 60));
+
+            Console.WriteLine($"{horas2:00} h");
+            Console.WriteLine($"{minutos2:00} min");
+            Console.WriteLine($"{segundos2:00} seg");
+
+            int horas3 = tempoEmSegundos / 3600;
+            int minutos3 = (tempoEmSegundos % 3600) / 60;
+            int segundos3 = (tempoEmSegundos % 3600) % 60;
+
+            Console.WriteLine($"{horas3:00} h");
+            Console.WriteLine($"{minutos3:00} min");
+            Console.WriteLine($"{segundos3:00} seg");
+            #endregion
 
             Espacos();
         }
@@ -107,6 +125,7 @@ namespace Lista04
                 valores[i] = int.Parse(Console.ReadLine());
             }
             double resultado = Math.Pow((valores[0] + valores[1]), 2) + valores[2];
+            //double resultado = ((valores[0] + valores[1])^2 + valores[2]);
 
             Console.WriteLine($"Resultado: {resultado}");
 
@@ -147,8 +166,8 @@ namespace Lista04
 
             Console.WriteLine($"Eleitores: {eleitores}");
             Console.WriteLine($"Votos em Branco: {brancos} - Percentual em relação aos eleitores: {percentualBrancos}%");
-            Console.WriteLine($"Votos em Branco: {nulos} - Percentual em relação aos eleitores: {percentualNulos:0.00}%");
-            Console.WriteLine($"Votos em Branco: {validos} - Percentual em relação aos eleitores: {percentualValidos:0.00}%");
+            Console.WriteLine($"Votos Nulos: {nulos} - Percentual em relação aos eleitores: {percentualNulos:0.00}%");
+            Console.WriteLine($"Votos válidos: {validos} - Percentual em relação aos eleitores: {percentualValidos.ToString("G")}%");
 
             Espacos();
         }
@@ -164,9 +183,10 @@ namespace Lista04
             double valorDistribuidor = percentagemDistribuidor * custoFabrica;
             double custoImposto = percentagemImpostos * custoFabrica;
 
-            custoConsumidor = custoFabrica + (valorDistribuidor) + custoImposto;
-
-            Console.WriteLine($"Custo ao consumidor: {custoConsumidor.ToString("C")}");
+            custoConsumidor = custoFabrica + valorDistribuidor + custoImposto;
+            Console.WriteLine($"Custo de impostos: {custoImposto.ToString("C", CultureInfo.GetCultureInfo("pt-br"))}");
+            Console.WriteLine($"Custo do distribuidor: {valorDistribuidor.ToString("C", CultureInfo.GetCultureInfo("pt-br"))}");
+            Console.WriteLine($"Custo ao consumidor: {custoConsumidor.ToString("C", CultureInfo.GetCultureInfo("pt-br"))}");
 
             Espacos();
         }

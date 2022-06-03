@@ -22,7 +22,7 @@ namespace Lista06
 
             //Exercicio07();
 
-            Exercicio08();
+            //Exercicio08();
 
             //Exercicio09();
 
@@ -32,37 +32,46 @@ namespace Lista06
         }
         private static void Exercicio01()
         {
+
             Console.WriteLine("Lista 06 - Exercício 01\n");
+            int[] vetor = new int[8];
 
-            double[] vetor = new double[8];
 
-            for (int i = 0; i < vetor.Length; i++)
-            {
-                //vetor[i] = i*i*i;
-                vetor[i] = Math.Pow(i, 3);
-            }
-            #region ForEach
-            //foreach (var item in vetor)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            #endregion
 
             for (int i = 0; i < vetor.Length; i++)
             {
-                Console.WriteLine($"Posição do vetor, índice {i}, elevado ao cubo: {vetor[i]}");
+                vetor[i] = Convert.ToInt32(Math.Pow(i, 3));
+                Console.WriteLine(vetor[i]);
             }
+            
+            for (int i = 0; i < vetor.Length; i++)
+            {
+                Console.WriteLine(vetor[i]);
+            }
+            
+            foreach (var numero in vetor)
+            {
+                Console.WriteLine(numero);
+            }
+
+
             Espacos();
         }
         private static void Exercicio02()
         {
             Console.WriteLine("Lista 06 - Exercício 02\n");
-            int[] vetor = { 5, 1, 4, 2, 7, 8, 3, 6 };
-            int[] vetor2 = new int[vetor.Length];
+            
+            
+            int[] vetor1 = { 5, 1, 4, 2, 7, 8, 3, 6 };
 
-            for (int i = 0; i < vetor.Length; i++)
+
+            int[] vetor2 = new int[vetor1.Length];
+
+            for (int i = 0; i < vetor1.Length; i++)
             {
-                vetor2[i] = vetor[i] * 2;
+                vetor2[i] = vetor1[i] * 2;
+
+                Console.Write($"{vetor2[i]}");
             }
 
             #region ForEach
@@ -72,9 +81,9 @@ namespace Lista06
             //}
             #endregion
 
-            for (int i = 0; i < vetor.Length; i++)
+            for (int i = 0; i < vetor1.Length; i++)
             {
-                Console.WriteLine($"Vetor 1 posição {i}: {vetor[i]} =+=+= Vetor 2 posição {i} : {vetor2[i]} dobro de {vetor[i]}");
+                Console.WriteLine($"Vetor 1 posição {i}: {vetor1[i]} =+=+= Vetor 2 posição {i} : {vetor2[i]} dobro de {vetor1[i]}");
             }
             Espacos();
         }
@@ -141,8 +150,8 @@ namespace Lista06
                     break;
                 }
                 achou = false;
-
             }
+
             if (achou)
             {
                 Console.WriteLine("ACHEI");

@@ -58,6 +58,7 @@ namespace Lista03
             for (int i = 0; i < valores.Length; i++)
             {
                 Console.Write($"Digite o valor {i + 1}: ");
+
                 valores[i] = double.Parse(Console.ReadLine());
             }
             #region usando for
@@ -127,17 +128,17 @@ namespace Lista03
 
             double peso = 0;
 
-            Console.Write("Insira a sua altura: ");
+            Console.Write("Insira a sua altura em metros: ");
             double altura = double.Parse(Console.ReadLine());
 
             Console.Write("Insira o seu sexo homem/mulher: ");
             string sexo = Console.ReadLine();
 
-            if (sexo == "homem")
+            if (sexo.ToLower() == "homem")
             {
                 peso = (72.7 * altura) - 58;
             }
-            else if (sexo == "mulher")
+            else if (sexo.ToLower() == "mulher")
             {
                 peso = (62.1 * altura) - 44.7;
             }
@@ -228,10 +229,7 @@ namespace Lista03
         private static void Exercicio10()
         {
             Console.WriteLine("Lista 03 - Exercício 10\n");
-            int anterior = 0, proximo = 0, auxiliar = 0; ;
-
-            //Console.Write($"{proximo} ");
-            proximo = 1;
+            int anterior = 0, proximo = 1, auxiliar = 0; ;
 
             for (int i = 0; i < 15; i++)
             {
@@ -241,7 +239,26 @@ namespace Lista03
                 proximo = anterior + auxiliar;
             }
 
-            Espacos();
+
+            Console.WriteLine($"\n\nCom recursividade\n");
+
+            for (int i = 1; i < 16; i++)
+            {
+                Console.Write($"{fibonacci(i)} ");
+            }
+
+            static int fibonacci(int numero)
+            {
+                if (numero < 2)
+                {
+                    return numero;
+                }
+                else
+                {
+                    return fibonacci(numero - 1) + fibonacci(numero - 2);
+                }
+            }
+
         }
 
         public static void Espacos()
