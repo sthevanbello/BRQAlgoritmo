@@ -205,6 +205,7 @@ namespace Lista03
 
             Console.Write("Digite um valor a partir de 1, não pode digitar zero: ");
             int numero = int.Parse(Console.ReadLine());
+
             for (int i = 1; i <= numero; i++)
             {
                 if (i % 2 == 0)
@@ -239,7 +240,7 @@ namespace Lista03
                 proximo = anterior + auxiliar;
             }
 
-
+            #region Recursividade
             Console.WriteLine($"\n\nCom recursividade\n");
 
             for (int i = 1; i < 16; i++)
@@ -258,7 +259,7 @@ namespace Lista03
                     return fibonacci(numero - 1) + fibonacci(numero - 2);
                 }
             }
-
+            #endregion
         }
 
         public static void Espacos()

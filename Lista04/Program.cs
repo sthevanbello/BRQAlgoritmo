@@ -9,12 +9,12 @@ namespace Lista04
         {
             //Exercicio01();
             //Exercicio02();
-            Exercicio03();
+            //Exercicio03();
             //Exercicio04();
             //Exercicio05();
             //Exercicio06();
             //Exercicio07();
-            //Exercicio08();
+            Exercicio08();
         }
         private static void Exercicio01()
         {
@@ -94,6 +94,8 @@ namespace Lista04
             Console.WriteLine($"{horas3:00} h");
             Console.WriteLine($"{minutos3:00} min");
             Console.WriteLine($"{segundos3:00} seg");
+
+            Console.WriteLine(horas.ToString("D") + " horas");
             #endregion
 
             Espacos();
@@ -184,6 +186,7 @@ namespace Lista04
             double custoImposto = percentagemImpostos * custoFabrica;
 
             custoConsumidor = custoFabrica + valorDistribuidor + custoImposto;
+
             Console.WriteLine($"Custo de impostos: {custoImposto.ToString("C", CultureInfo.GetCultureInfo("pt-br"))}");
             Console.WriteLine($"Custo do distribuidor: {valorDistribuidor.ToString("C", CultureInfo.GetCultureInfo("pt-br"))}");
             Console.WriteLine($"Custo ao consumidor: {custoConsumidor.ToString("C", CultureInfo.GetCultureInfo("pt-br"))}");

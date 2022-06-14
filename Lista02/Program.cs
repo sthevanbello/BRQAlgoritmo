@@ -26,42 +26,43 @@ namespace Lista06
 
             //Exercicio09();
 
-            //Exercicio10();
+            Exercicio10();
 
             Console.ReadKey();
         }
+
+        
         private static void Exercicio01()
         {
 
             Console.WriteLine("Lista 06 - Exercício 01\n");
+
             int[] vetor = new int[8];
-
-
 
             for (int i = 0; i < vetor.Length; i++)
             {
                 vetor[i] = Convert.ToInt32(Math.Pow(i, 3));
+
                 Console.WriteLine(vetor[i]);
             }
-            
+
             for (int i = 0; i < vetor.Length; i++)
             {
-                Console.WriteLine(vetor[i]);
+                Console.WriteLine($"Vetor na posição {i}: {vetor[i]}");
             }
-            
+
             foreach (var numero in vetor)
             {
                 Console.WriteLine(numero);
             }
-
 
             Espacos();
         }
         private static void Exercicio02()
         {
             Console.WriteLine("Lista 06 - Exercício 02\n");
-            
-            
+
+
             int[] vetor1 = { 5, 1, 4, 2, 7, 8, 3, 6 };
 
 
@@ -133,14 +134,18 @@ namespace Lista06
         {
             Console.WriteLine("Lista 06 - Exercício 04\n");
             string[] nomes = new string[5];
+
             bool achou = false;
+
             for (int i = 0; i < nomes.Length; i++)
             {
                 Console.Write($"Insira o nome {i + 1}: ");
-                nomes[i] = Console.ReadLine();
+                nomes[i] = Console.ReadLine().ToLower();
             }
+
             Console.Write("Insira o nome para buscar: ");
-            string nomeParaBuscar = Console.ReadLine();
+            string nomeParaBuscar = Console.ReadLine().ToLower();
+
 
             foreach (var nome in nomes)
             {
@@ -149,8 +154,9 @@ namespace Lista06
                     achou = true;
                     break;
                 }
-                achou = false;
+                Console.WriteLine($"nome: {nome}");
             }
+
 
             if (achou)
             {
@@ -160,6 +166,8 @@ namespace Lista06
             {
                 Console.WriteLine("NÃO ACHEI");
             }
+
+            //Console.WriteLine(nomes.Any(x => x.ToLower() == nomeParaBuscar.ToString().ToLower()));
             Espacos();
         }
         private static void Exercicio05()
@@ -170,24 +178,32 @@ namespace Lista06
             int contador = 0;
             int posicao = 0;
             int maior = -9999999;
-            while (true)
-            {
-                if (contador > 9)
-                    break;
 
+            // Receber 10 números
+            while (contador <= 9)
+            {
                 Console.Write($"Posição {contador} no vetor - Insira um número par: ");
                 int numeroLido = int.Parse(Console.ReadLine());
 
+                // Receber apenas os pares
                 if (numeroLido % 2 == 0)
                 {
                     vetorQ[contador] = numeroLido;
-                    contador++;
+                    ++contador;
+                    #region lista
                     lista.Add(numeroLido);
+                    #endregion
                 }
                 else
-                    Console.WriteLine("Insira números pares, apenas");
+                {
+                    var color = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("+++ Insira números pares, apenas +++");
+                    Console.ForegroundColor = color;
+                }
             }
 
+            // Identificar qual é o maior e qual é a sua posição no vetor
             for (int i = 0; i < vetorQ.Length; i++)
             {
                 if (vetorQ[i] > maior)
@@ -196,8 +212,9 @@ namespace Lista06
                     posicao = i;
                 }
             }
-
+            Console.WriteLine("\nSomente o primeiro valor\n");
             Console.WriteLine($"Maior número inserido: {maior} --- Posição no vetor: {posicao}");
+            Console.WriteLine();
 
             #region Usando List
             var maior2 = lista.Max();
@@ -206,6 +223,7 @@ namespace Lista06
                   .Where(x => x.num == maior2)
                   .Select(x => x.indice).ToList();
 
+            Console.WriteLine("\nTodas as posições\n");
             for (int i = 0; i < maiores.Count; i++)
             {
                 Console.WriteLine($"Maior número inserido: {maiores[i]} --- Posição no vetor: {indices[i]}");
@@ -218,7 +236,7 @@ namespace Lista06
         {
             Console.WriteLine("Lista 06 - Exercício 06\n");
             double[] temperaturas = new double[7];
-            double soma = 0, media = 0, menorTemperatura = 100, maiorTemperatura = 0;
+            double soma = 0, media = 0, menorTemperatura = 999, maiorTemperatura = -999;
             int diasAbaixoDaMedia = 0;
 
             for (int i = 0; i < temperaturas.Length; i++)
@@ -226,12 +244,17 @@ namespace Lista06
                 Console.Write($"Temperatura no dia {i + 1}: ");
                 temperaturas[i] = double.Parse(Console.ReadLine());
             }
+
             for (int i = 0; i < temperaturas.Length; i++)
             {
                 if (temperaturas[i] > maiorTemperatura)
+                {
                     maiorTemperatura = temperaturas[i];
+                }
                 if (temperaturas[i] < menorTemperatura)
+                {
                     menorTemperatura = temperaturas[i];
+                }
                 soma += temperaturas[i];
             }
 
@@ -266,15 +289,17 @@ namespace Lista06
             //Ordenar(vetor, vetor.Length);
 
             #region Bubble Sort
-
+            double auxiliar = 0;
             for (int i = vetor.Length; i > 1; i--)
             {
                 for (int j = 0; j < i - 1; j++)
                 {
                     if (vetor[j] > vetor[j + 1])
                     {
-                        double auxiliar = vetor[j];
+                        auxiliar = vetor[j];
+
                         vetor[j] = vetor[j + 1];
+                        
                         vetor[j + 1] = auxiliar;
                     }
                 }
@@ -323,10 +348,14 @@ namespace Lista06
         private static void Exercicio08()
         {
             Console.WriteLine("Lista 06 - Exercício 08\n");
+
             double num1 = 0, num2 = 0, num3 = 0;
+            double[] valores = new double[3];
 
             Console.WriteLine("Digite três valores");
 
+            #region Individual
+            // Recebe os valores individuais
             Console.Write("Digite o valor 1: ");
             num1 = double.Parse(Console.ReadLine());
 
@@ -335,31 +364,58 @@ namespace Lista06
 
             Console.Write("Digite o valor 3: ");
             num3 = double.Parse(Console.ReadLine());
+            #endregion
 
+            #region Usando vetor com for
+            // Recebe os valores usando vetor com for
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Digite o valor {i + 1}: ");
+                valores[i] = double.Parse(Console.ReadLine());
+            }
+            #endregion
+            // Usando funções com valores individuais
             double soma = Soma(num1, num2, num3);
-            
-            double media = Media(soma);
+            double media = Media(num1, num2, num3);
 
-            double media2 = Media2(num1, num2, num3);
+            #region Usando vetor
+            // Usando funções com vetor
+            double soma2 = Soma2(valores);
+            double media2 = Media2(valores);
 
+            #endregion
+
+            #region Usando entradas simples
+            // Soma com 3 valores individuais
             double Soma(double num1, double num2, double num3)
             {
                 return num1 + num2 + num3;
             }
 
-            double Media(double soma)
+            // Média com 3 valores individuais
+            double Media(double num1, double num2, double num3)
             {
-                return soma / 3;
+                return Soma(num1, num2, num3) / 3;
             }
 
-            double Media2(double num1, double num2, double num3)
-            {
-                double soma = Soma(num1, num2, num3);
+            Console.WriteLine($"Soma: {soma}\nMédia: {media}");
 
-                return soma / 3;
+            #endregion
+
+            #region Usando vetor
+            // Soma com vetor
+            double Soma2(double[] valores)
+            {
+                return soma = valores[0] + valores[1] + valores[2];
             }
 
-            Console.WriteLine($"Soma: {soma:0.00}\nMédia: {media2:0.00}");
+            // Média com vetor
+            double Media2(double[] valores)
+            {
+                return Soma(num1: valores[0], num2: valores[1], num3: valores[2]) / 3;
+            }
+            Console.WriteLine($"Soma: {soma2}\nMédia: {media2}");
+            #endregion
 
             Espacos();
         }
@@ -367,13 +423,15 @@ namespace Lista06
         {
             Console.WriteLine("Lista 06 - Exercício 09\n");
 
+            Console.WriteLine("\nVerificação de tipo de número\nP: Positivo\nN: Negativo ou Zero");
+
+            Console.Write("\nInsira um número positivo, negativo ou zero: ");
+
             double numero = double.Parse(Console.ReadLine());
 
             string resultado = VerificaNumero(numero);
 
-            Console.WriteLine(resultado);
-
-
+            Console.WriteLine($"O número {numero} é {resultado}");
 
             string VerificaNumero(double numero)
             {
@@ -390,14 +448,53 @@ namespace Lista06
         {
             Console.WriteLine("Lista 06 - Exercício 10\n");
 
-            var numero = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("+++++ Digite um número para que seja verificada a quantidade de termos que ele possui ++++++");
+
+            Console.Write("Número: ");
+            int numero = Convert.ToInt32(Console.ReadLine());
 
             string numeroTexto = numero.ToString();
 
-            Console.WriteLine($"\nO número {numeroTexto} possui {numeroTexto.Length} dígitos");
+            // Retorna um inteiro com o valor da contagem de dígitos;
+            int contador = ContaNumero(numero);
+
+            Console.WriteLine("\n++++ Feito com um contador ++++");
+            Console.WriteLine($"\nO número {numeroTexto} possui {contador} dígitos");
+
+            int numeroPositivo = Math.Abs(numero);
+
+            Console.WriteLine($"Germana - {Verifica(numeroPositivo)}");
+
+            int ContaNumero(int numero)
+            {
+                int contador = 0;
+                string numeroConvertido = Math.Abs(numero).ToString();
+                foreach (var item in numeroConvertido.ToString())
+                {
+                    contador++;
+                }
+                return contador;
+            }
+
+            int Verifica(int numero)
+            {
+                int cont = 0;
+                int i = 0;
+                while (Convert.ToInt32((int)numero / (int)Math.Pow(10, i)) > 0)
+                {
+                    i++;
+                    cont++;
+                }
+                return cont;
+            }
+
+            
 
             Espacos();
         }
+
+        
 
         public static void Espacos()
         {
